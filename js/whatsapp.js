@@ -6,3 +6,7 @@ function showTab(tab) {
 function openProfile() {
   openApp('profile');
 }
+
+function openStatus(id) {
+  openApp(id);
+}
