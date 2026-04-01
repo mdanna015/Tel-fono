@@ -49,16 +49,6 @@
   justify-content: center;
   align-items: center;
 }
-/* fotos.css */
-#eliminated p.clickable {
-  cursor: pointer;
-  color: #ff3333;
-  font-weight: bold;
-  margin: 10px 0;
-}
-#eliminated p.clickable:hover {
-  text-decoration: underline;
-}
 .hidden {
   display: none;
 }
