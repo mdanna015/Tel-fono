@@ -194,3 +194,10 @@
   background: #25D366;
   border-radius: 10px;
 }
+
+/* IMAGEN */
+.msg img {
+  max-width: 150px;
+  border-radius: 10px;
+  display: block;
+}
