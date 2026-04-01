@@ -140,6 +140,68 @@ body {
 .other {
   background: #333;
 }
+  .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #333;
+}
+
+.tab-btn {
+  color: white;
+  font-size: 14px;
+}
+.chat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #222;
+}
+
+.chat-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.time-chat {
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.chat-screen {
+  background: url('https://i.imgur.com/8Km9tLL.png');
+  background-size: cover;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #075e54;
+  padding: 10px;
+}
+
+.chat-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.online {
+  font-size: 12px;
+  opacity: 0.7;
+}
+  .setting-item {
+  padding: 15px;
+  border-bottom: 1px solid #222;
+}
 </style>
 </head>
 
@@ -197,49 +259,88 @@ body {
 
     <h3>WhatsApp</h3>
 
-    <div class="tabs">
-      <button onclick="showTab('chats')">Chats</button>
-      <button onclick="showTab('status')">Estados</button>
-      <button onclick="showTab('contacts')">Contactos</button>
-      <button onclick="showTab('settings')">Settings</button>
-    </div>
+<div class="bottom-bar">
+  <div onclick="showTab('chats')" class="tab-btn">Chats</div>
+  <div onclick="showTab('status')" class="tab-btn">Estados</div>
+  <div onclick="showTab('settings')" class="tab-btn">Ajustes</div>
+</div>
 
-    <div id="chats" class="tab">
-      <div class="chat-item" onclick="openApp('chat1')">
-        <b>Auron</b>
-        <p>Último mensaje...</p>
-      </div>
+<div id="chats" class="tab">
+
+  <div class="chat-item" onclick="openApp('chat1')">
+    <img src="https://i.pravatar.cc/40?img=1">
+    <div>
+      <b>Auron</b>
+      <p>Último mensaje...</p>
     </div>
+    <span class="time-chat">9:41</span>
+  </div>
+
+</div>
 
     <div id="status" class="tab hidden">
       <p>Historia 👀</p>
     </div>
 
-    <div id="contacts" class="tab hidden">
-      <p>Auron - Online</p>
+<div id="settings" class="tab hidden">
+
+  <div class="setting-item">
+    <img src="https://i.pravatar.cc/50">
+    <div>
+      <b>Tu Nombre</b>
+      <p>Tu descripción</p>
     </div>
-
-    <div id="settings" class="tab hidden">
-      <p>Tu número: 8888-8888</p>
-    </div>
-
-    <button onclick="show('home')">⬅</button>
-
   </div>
+
+  <div class="setting-item">
+    📱 Número: 8888-8888
+  </div>
+
+  <div class="setting-item" onclick="alert('Bloqueados')">
+    🔒 Bloqueados
+  </div>
+
+</div>
 
   <!-- CHAT -->
-  <div id="chat1" class="screen hidden">
+<div id="chat1" class="screen hidden chat-screen">
 
-    <h3>Auron</h3>
+  <div class="chat-header">
+    <img src="https://i.pravatar.cc/40?img=1" onclick="openProfile()">
+    <div>
+      <b>Auron</b>
+      <p class="online">online</p>
+    </div>
+  </div>
 
-    <div class="messages">
-      <div class="msg other">Hola 👀</div>
-      <div class="msg me">Todo bien</div>
+  <div class="messages">
+
+    <div class="msg other">Hola 👀</div>
+    <div class="msg me">Todo bien</div>
+
+    <div class="msg me">
+      <img src="https://picsum.photos/200">
     </div>
 
-    <button onclick="openApp('whatsapp')">⬅</button>
+  <div id="profile" class="screen hidden">
 
+    <h3>Perfil</h3>
+
+    <img src="https://i.pravatar.cc/100?img=1">
+
+    <p><b>Nombre:</b> Auron</p>
+    <p><b>Número:</b> 8888-8888</p>
+    <p><b>Descripción:</b> No molestar</p>  
+  
+  <button onclick="openApp('chat1')">⬅</button>
+
+</div>
+</div>
   </div>
+
+  <button onclick="openApp('whatsapp')">⬅</button>
+
+</div>
 
 </div>
 
@@ -317,6 +418,9 @@ function showTab(tab) {
   document.getElementById(tab).classList.remove('hidden');
 }
 
+function openProfile() {
+  openApp('profile');
+}
 </script>
 
 </body>
