@@ -92,3 +92,26 @@
   padding: 15px;
   border-bottom: 1px solid #222;
 }
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #075e54;
+  padding: 10px;
+  color: white;
+}
+
+.chat-header img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.info {
+  flex: 1;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
