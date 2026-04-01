@@ -1,1 +1,32 @@
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
+.phone {
+  width: 300px;
+  height: 600px;
+  border-radius: 40px;
+  background: black;
+  overflow: hidden;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
