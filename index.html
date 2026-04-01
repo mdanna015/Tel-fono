@@ -1,15 +1,14 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>Teléfono Narrativo</title>
-  
+
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/lock.css">
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/whatsapp.css">
-  
-</style>
+
 </head>
 
 <body>
@@ -66,69 +65,68 @@
 
     <h3>WhatsApp</h3>
 
-<div class="bottom-bar">
-  <div onclick="showTab('chats')" class="tab-btn">Chats</div>
-  <div onclick="showTab('status')" class="tab-btn">Estados</div>
-  <div onclick="showTab('settings')" class="tab-btn">Ajustes</div>
-</div>
-
-<div id="chats" class="tab">
-
-  <div class="chat-item" onclick="openApp('chat1')">
-    <img src="https://i.pravatar.cc/40?img=1">
-    <div>
-      <b>Auron</b>
-      <p>Último mensaje...</p>
+    <div class="bottom-bar">
+      <div onclick="showTab('chats')" class="tab-btn">Chats</div>
+      <div onclick="showTab('status')" class="tab-btn">Estados</div>
+      <div onclick="showTab('settings')" class="tab-btn">Ajustes</div>
     </div>
-    <span class="time-chat">9:41</span>
-  </div>
 
-</div>
+    <div id="chats" class="tab">
+      <div class="chat-item" onclick="openApp('chat1')">
+        <img src="https://i.pravatar.cc/40?img=1">
+        <div>
+          <b>Auron</b>
+          <p>Último mensaje...</p>
+        </div>
+        <span class="time-chat">9:41</span>
+      </div>
+    </div>
 
     <div id="status" class="tab hidden">
       <p>Historia 👀</p>
     </div>
 
-<div id="settings" class="tab hidden">
+    <div id="settings" class="tab hidden">
+      <div class="setting-item">
+        <img src="https://i.pravatar.cc/50">
+        <div>
+          <b>Tu Nombre</b>
+          <p>Tu descripción</p>
+        </div>
+      </div>
 
-  <div class="setting-item">
-    <img src="https://i.pravatar.cc/50">
-    <div>
-      <b>Tu Nombre</b>
-      <p>Tu descripción</p>
+      <div class="setting-item">
+        📱 Número: 8888-8888
+      </div>
+
+      <div class="setting-item">
+        🔒 Bloqueados
+      </div>
     </div>
-  </div>
 
-  <div class="setting-item">
-    📱 Número: 8888-8888
   </div>
-
-  <div class="setting-item" onclick="alert('Bloqueados')">
-    🔒 Bloqueados
-  </div>
-
-</div>
 
   <!-- CHAT -->
-<div id="chat1" class="screen hidden chat-screen">
+  <div id="chat1" class="screen hidden chat-screen">
 
-  <div class="chat-header">
-    <img src="https://i.pravatar.cc/40?img=1" onclick="openProfile()">
-    <div>
-      <b>Auron</b>
-      <p class="online">online</p>
+    <div class="chat-header">
+      <img src="https://i.pravatar.cc/40?img=1" onclick="openProfile()">
+      <div>
+        <b>Auron</b>
+        <p class="online">online</p>
+      </div>
     </div>
+
+    <div class="messages">
+      <div class="msg other">Hola 👀</div>
+      <div class="msg me">Todo bien</div>
+    </div>
+
+    <button onclick="openApp('whatsapp')">⬅</button>
+
   </div>
 
-  <div class="messages">
-
-    <div class="msg other">Hola 👀</div>
-    <div class="msg me">Todo bien</div>
-
-    <div class="msg me">
-      <img src="https://picsum.photos/200">
-    </div>
-
+  <!-- PROFILE -->
   <div id="profile" class="screen hidden">
 
     <h3>Perfil</h3>
@@ -137,26 +135,18 @@
 
     <p><b>Nombre:</b> Auron</p>
     <p><b>Número:</b> 8888-8888</p>
-    <p><b>Descripción:</b> No molestar</p>  
-  
-  <button onclick="openApp('chat1')">⬅</button>
+    <p><b>Descripción:</b> No molestar</p>
 
-</div>
-</div>
+    <button onclick="openApp('chat1')">⬅</button>
+
   </div>
 
-  <button onclick="openApp('whatsapp')">⬅</button>
-</div>
 </div>
 
-<script>
-  
 <script src="js/main.js"></script>
 <script src="js/lock.js"></script>
 <script src="js/home.js"></script>
 <script src="js/whatsapp.js"></script>
-  
-</script>
 
 </body>
 </html>
