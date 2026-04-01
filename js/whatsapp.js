@@ -10,3 +10,51 @@ function openProfile() {
 function openStatus(id) {
   openApp(id);
 }
+
+let statusIndex = 0;
+
+const statuses = [
+  "https://picsum.photos/300/600?1",
+  "https://picsum.photos/300/600?2",
+  "https://picsum.photos/300/600?3"
+];
+
+function openStatus(id) {
+  openApp(id);
+  playStatus();
+}
+
+function playStatus() {
+  let progress = document.getElementById("statusProgress");
+  let img = document.getElementById("statusImg");
+
+  progress.style.width = "0%";
+  img.src = statuses[statusIndex];
+
+  let width = 0;
+
+  let interval = setInterval(() => {
+    width += 1;
+    progress.style.width = width + "%";
+
+    if(width >= 100) {
+      clearInterval(interval);
+      nextStatus();
+    }
+  }, 50); // velocidad
+}
+
+function nextStatus() {
+  statusIndex++;
+
+  if(statusIndex < statuses.length) {
+    playStatus();
+  } else {
+    closeStatus();
+  }
+}
+
+function closeStatus() {
+  statusIndex = 0;
+  openApp('whatsapp');
+}
