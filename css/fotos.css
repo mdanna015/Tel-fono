@@ -37,9 +37,6 @@
   color: white;
   font-size: 12px;
 }
-.hidden {
-  display: none;
-}
 .photo-viewer {
   position: absolute;
   top: 0;
@@ -51,4 +48,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hidden {
+  display: none;
 }
