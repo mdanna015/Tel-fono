@@ -58,3 +58,20 @@ function closeStatus() {
   statusIndex = 0;
   openApp('whatsapp');
 }
+function toggleAudio(id, btn) {
+  const audio = document.getElementById(id);
+  const progress = document.getElementById("progress-" + id);
+
+  if(audio.paused) {
+    audio.play();
+    btn.innerText = "⏸";
+  } else {
+    audio.pause();
+    btn.innerText = "▶";
+  }
+
+  audio.ontimeupdate = () => {
+    let percent = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = percent + "%";
+  };
+}
