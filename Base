@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Teléfono Narrativo</title>
+<style>
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.phone {
+  width: 300px;
+  height: 600px;
+  background: black;
+  border-radius: 30px;
+  overflow: hidden;
+  color: white;
+}
+
+.screen {
+  padding: 15px;
+}
+
+.app {
+  background: #222;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- HOME -->
+  <div id="home" class="screen">
+    <h3>📱 Inicio</h3>
+    <div class="app" onclick="openApp('system')">⚙️ Sistema</div>
+    <div class="app" onclick="openApp('gallery')">🖼️ Galería</div>
+  </div>
+
+  <!-- SISTEMA -->
+  <div id="system" class="screen hidden">
+    <h3>🔑 Ingresar código</h3>
+    <input id="codeInput" placeholder="Escribe el código">
+    <button onclick="checkCode()">Aceptar</button>
+    <p id="result"></p>
+    <button onclick="goHome()">⬅ Volver</button>
+  </div>
+
+  <!-- GALERÍA -->
+  <div id="gallery" class="screen hidden">
+    <h3>🖼️ Galería</h3>
+    
+    <div id="lockedContent">
+      🔒 No hay fotos disponibles
+    </div>
+
+    <div id="secretPhoto" class="hidden">
+      <p>📸 Foto secreta desbloqueada</p>
+      <img src="https://via.placeholder.com/200" width="100%">
+    </div>
+
+    <button onclick="goHome()">⬅ Volver</button>
+  </div>
+
+</div>
+
+<script>
+
+// Guardar progreso
+let unlocked = JSON.parse(localStorage.getItem("unlocked")) || {};
+
+// Abrir apps
+function openApp(app) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById(app).classList.remove('hidden');
+}
+
+// Volver
+function goHome() {
+  openApp('home');
+}
+
+// Revisar código
+function checkCode() {
+  let code = document.getElementById("codeInput").value;
+  let result = document.getElementById("result");
+
+  if(code === "0427") {
+    unlocked.photo = true;
+    localStorage.setItem("unlocked", JSON.stringify(unlocked));
+    result.innerText = "Código correcto 👀";
+    updateContent();
+  } else {
+    result.innerText = "Código incorrecto";
+  }
+}
+
+// Actualizar contenido
+function updateContent() {
+  if(unlocked.photo) {
+    document.getElementById("lockedContent").style.display = "none";
+    document.getElementById("secretPhoto").classList.remove("hidden");
+  }
+}
+
+// Cargar estado
+updateContent();
+
+</script>
+
+</body>
+</html>
