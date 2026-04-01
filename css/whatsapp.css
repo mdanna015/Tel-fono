@@ -143,3 +143,21 @@
   height: 100%;
   object-fit: cover;
 }
+.status-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+}
+
+.status-progress {
+  height: 4px;
+  width: 0%;
+  background: white;
+}
+
+.status-view {
+  position: relative;
+}
