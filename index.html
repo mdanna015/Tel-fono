@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -14,7 +14,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Teléfono */
 .phone {
   width: 300px;
   height: 600px;
@@ -22,10 +21,8 @@ body {
   background: black;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
-/* Pantallas */
 .screen {
   position: absolute;
   width: 100%;
@@ -37,12 +34,11 @@ body {
   display: block;
 }
 
-/* Pantalla apagada */
-#off {
-  background: black;
+.hidden {
+  display: none;
 }
 
-/* Lock screen */
+/* LOCK */
 #lock {
   background: url('https://images.unsplash.com/photo-1517816428104-797678c7cf0c') center/cover;
   color: white;
@@ -50,36 +46,40 @@ body {
   padding-top: 60px;
 }
 
-.time {
-  font-size: 50px;
-}
-
-.date {
-  font-size: 18px;
-  opacity: 0.8;
-}
+.time { font-size: 50px; }
+.date { font-size: 18px; opacity: 0.8; }
 
 .swipe {
   position: absolute;
   bottom: 30px;
   width: 100%;
   text-align: center;
-  opacity: 0.7;
+  animation: float 1.5s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
 /* PIN */
-#pin {
-  background: black;
-  color: white;
-  text-align: center;
-  padding-top: 50px;
-}
+#pin { color: white; text-align: center; padding-top: 50px; }
 
 .pin-dots {
-  letter-spacing: 10px;
-  font-size: 30px;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.dot.filled { background: white; }
 
 .keypad {
   display: grid;
@@ -92,57 +92,10 @@ body {
   background: #333;
   padding: 15px;
   border-radius: 50%;
-  font-size: 20px;
 }
 
-/* Home */
-#home {
-  background: #000;
-  color: white;
-  padding: 20px;
-}
-
-.app {
-  background: #222;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 15px;
-  text-align: center;
-}
-
-.pin-dots {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.dot {
-  width: 15px;
-  height: 15px;
-  border: 2px solid white;
-  border-radius: 50%;
-}
-
-.dot.filled {
-  background: white;
-}
-
-.swipe {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  text-align: center;
-  opacity: 0.7;
-  font-size: 14px;
-  animation: float 1.5s infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
+/* HOME */
+#home { color: white; }
 
 .home-grid {
   display: grid;
@@ -152,19 +105,25 @@ body {
   text-align: center;
 }
 
-.app-icon img {
-  width: 50px;
-  height: 50px;
+.app-icon img { width: 50px; }
+.app-icon p { font-size: 12px; }
+
+/* WHATSAPP */
+#whatsapp { color: white; padding: 10px; }
+
+.tabs button {
+  margin: 5px;
 }
 
-.app-icon p {
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.messages {
+.chat-item {
+  background: #222;
   padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
 }
+
+/* CHAT */
+.messages { padding: 10px; }
 
 .msg {
   padding: 10px;
@@ -181,36 +140,31 @@ body {
 .other {
   background: #333;
 }
-
-  .hidden {
-  display: none;
-}
 </style>
-
 </head>
 
 <body>
 
 <div class="phone">
 
-  <!-- Pantalla apagada -->
-  <div id="off" class="screen active" onclick="turnOn()"></div>
+  <!-- OFF -->
+  <div id="off" class="screen active" onclick="show('lock')"></div>
 
-  <!-- Lock screen -->
+  <!-- LOCK -->
   <div id="lock" class="screen">
     <div class="time" id="time"></div>
     <div class="date" id="date"></div>
-<div class="swipe" id="swipeText">Desliza hacia arriba</div>
+    <div class="swipe">Desliza ↑</div>
   </div>
 
   <!-- PIN -->
   <div id="pin" class="screen">
-<div class="pin-dots" id="dots">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
+    <div class="pin-dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
 
     <div class="keypad">
       <div class="key" onclick="press(1)">1</div>
@@ -228,150 +182,117 @@ body {
     </div>
   </div>
 
-  <!-- Home -->
-<!-- Home -->
-<div id="home" class="screen">
-  <div class="home-grid">
-
-    <div class="app-icon" onclick="openApp('whatsapp')">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-      <p>WhatsApp</p>
-    </div>
-
-    <div class="app-icon">
-      <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png">
-      <p>Fotos</p>
-    </div>
-
-  </div>
-</div>
-  
-  <!-- Tabs -->
-  <div class="tabs">
-    <button onclick="showTab('chats')">Chats</button>
-    <button onclick="showTab('status')">Estados</button>
-    <button onclick="showTab('contacts')">Contactos</button>
-    <button onclick="showTab('settings')">Settings</button>
-  </div>
-
-  <!-- CHATS -->
-  <div id="chats" class="tab">
-    <div onclick="openChat('chat1')" class="chat-item">
-      <p><b>Auron</b></p>
-      <p>Último mensaje...</p>
+  <!-- HOME -->
+  <div id="home" class="screen">
+    <div class="home-grid">
+      <div class="app-icon" onclick="openApp('whatsapp')">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+        <p>WhatsApp</p>
+      </div>
     </div>
   </div>
 
-  <!-- ESTADOS -->
-  <div id="status" class="tab hidden">
-    <div onclick="viewStatus()">
-      <p>Ver historia de Alexby</p>
-    </div>
-  </div>
+  <!-- WHATSAPP -->
+  <div id="whatsapp" class="screen hidden">
 
-  <!-- CONTACTOS -->
-  <div id="contacts" class="tab hidden">
-    <div onclick="openContact()">
-      <p><b>Auron</b></p>
-      <p>Online</p>
-    </div>
-  </div>
+    <h3>WhatsApp</h3>
 
-  <!-- SETTINGS -->
-  <div id="settings" class="tab hidden">
-    <p><b>Tu número:</b> 8888-8888</p>
-    <p><b>Estado:</b> No molestar</p>
-  </div>
-
-  <button onclick="goHome()">⬅</button>
-</div>
-
-<div id="chat1" class="screen hidden">
-
-  <h3>Auron</h3>
-
-  <div class="messages">
-
-    <div class="msg other">Hola 👀</div>
-    <div class="msg me">Todo bien</div>
-
-    <div class="msg other">
-      <img src="https://via.placeholder.com/150" width="100%">
+    <div class="tabs">
+      <button onclick="showTab('chats')">Chats</button>
+      <button onclick="showTab('status')">Estados</button>
+      <button onclick="showTab('contacts')">Contactos</button>
+      <button onclick="showTab('settings')">Settings</button>
     </div>
 
-    <div class="msg other">📍 Ubicación compartida</div>
+    <div id="chats" class="tab">
+      <div class="chat-item" onclick="openApp('chat1')">
+        <b>Auron</b>
+        <p>Último mensaje...</p>
+      </div>
+    </div>
 
-    <div class="msg other">🎧 Audio (simulado)</div>
+    <div id="status" class="tab hidden">
+      <p>Historia 👀</p>
+    </div>
+
+    <div id="contacts" class="tab hidden">
+      <p>Auron - Online</p>
+    </div>
+
+    <div id="settings" class="tab hidden">
+      <p>Tu número: 8888-8888</p>
+    </div>
+
+    <button onclick="show('home')">⬅</button>
 
   </div>
 
-  <button onclick="openApp('whatsapp')">⬅</button>
+  <!-- CHAT -->
+  <div id="chat1" class="screen hidden">
 
-</div>
+    <h3>Auron</h3>
+
+    <div class="messages">
+      <div class="msg other">Hola 👀</div>
+      <div class="msg me">Todo bien</div>
+    </div>
+
+    <button onclick="openApp('whatsapp')">⬅</button>
+
   </div>
-</div>
 
 </div>
 
 <script>
 
-// Cambiar pantallas
 function show(screen) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+    s.classList.add('hidden');
+  });
+
+  document.getElementById(screen).classList.remove('hidden');
   document.getElementById(screen).classList.add('active');
 }
 
-// Encender
-function turnOn() {
-  show('lock');
+function openApp(app) {
+  show(app);
 }
 
-// Ir a PIN
-function goToPin() {
-  show('pin');
-}
+// swipe
+let startY = 0;
 
-  let startY = 0;
-
-document.getElementById("lock").addEventListener("touchstart", (e) => {
+document.getElementById("lock").addEventListener("touchstart", e => {
   startY = e.touches[0].clientY;
 });
 
-document.getElementById("lock").addEventListener("touchend", (e) => {
+document.getElementById("lock").addEventListener("touchend", e => {
   let endY = e.changedTouches[0].clientY;
-
-  if(startY - endY > 50) {
-    // si desliza hacia arriba
-    goToPin();
-  }
+  if(startY - endY > 50) show("pin");
 });
-  
-// Hora dinámica
-function updateTime() {
+
+// hora
+setInterval(() => {
   const now = new Date();
   document.getElementById("time").innerText =
-    now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
+    now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
   document.getElementById("date").innerText =
     now.toLocaleDateString();
-}
-setInterval(updateTime, 1000);
-updateTime();
+}, 1000);
 
 // PIN
 let pin = "";
 const correctPin = "1115";
 
-function press(num) {
+function press(n) {
   if(pin.length < 4) {
-    pin += num;
+    pin += n;
     updateDots();
   }
 
   if(pin.length === 4) {
-    if(pin === correctPin) {
-      show('home');
-    } else {
+    if(pin === correctPin) show("home");
+    else {
       pin = "";
       updateDots();
       alert("PIN incorrecto");
@@ -381,23 +302,14 @@ function press(num) {
 
 function updateDots() {
   const dots = document.querySelectorAll(".dot");
-
-  dots.forEach((dot, i) => {
-    if(i < pin.length) {
-      dot.classList.add("filled");
-    } else {
-      dot.classList.remove("filled");
-    }
+  dots.forEach((d,i)=>{
+    d.classList.toggle("filled", i < pin.length);
   });
 }
-  
+
 function clearPin() {
-  pin = pin.slice(0, -1);
+  pin = pin.slice(0,-1);
   updateDots();
-}
-function openApp(app) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
-  document.getElementById(app).classList.remove('hidden');
 }
 
 function showTab(tab) {
@@ -405,17 +317,6 @@ function showTab(tab) {
   document.getElementById(tab).classList.remove('hidden');
 }
 
-function openChat(chat) {
-  openApp(chat);
-}
-
-function openContact() {
-  alert("Perfil del contacto");
-}
-
-function viewStatus() {
-  alert("Historia 👀");
-}
 </script>
 
 </body>
