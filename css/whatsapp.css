@@ -201,3 +201,28 @@
   border-radius: 10px;
   display: block;
 }
+
+/* BARRA CHAT */
+.chat-input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.fake-input {
+  flex: 1;
+  background: #222;
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.icon {
+  font-size: 18px;
+}
