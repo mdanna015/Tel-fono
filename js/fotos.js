@@ -20,8 +20,11 @@ const eliminatedCode = "0000"; // código propio
 function openEliminated() {
   let code = prompt("Ingresa el código para eliminados");
 
+function openEliminated() {
+  let code = prompt("Ingresa el código para eliminados");
+
   if(code === eliminatedCode) {
-    document.getElementById("hiddenContent").classList.remove("hidden");
+    document.getElementById("eliminatedContent").classList.remove("hidden");
   } else {
     alert("❌ Código incorrecto");
   }
