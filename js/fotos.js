@@ -13,6 +13,7 @@ function openPhoto(src) {
 function closePhoto() {
   document.getElementById("photoViewer").classList.add("hidden");
 }
+
 let deletedPhotos = [];
 
 function moveToDeleted(src) {
