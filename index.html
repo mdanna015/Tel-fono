@@ -114,8 +114,15 @@
 
 <!-- PANTALLA DE HISTORIA (FUERA) -->
 <div id="status1" class="screen hidden status-view">
-  <img src="https://picsum.photos/300/600">
-  <button onclick="openApp('whatsapp')">✖</button>
+  <!-- barra -->
+  <div class="status-bar">
+    <div class="status-progress" id="statusProgress"></div>
+  </div>
+  <!-- imagen -->
+  <img id="statusImg" src="https://picsum.photos/300/600?1">
+  <!-- cerrar -->
+  <button onclick="closeStatus()">✖</button>
+
 </div>
   
   <!-- CHAT -->
