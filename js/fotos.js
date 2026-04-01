@@ -13,3 +13,14 @@ function openPhoto(src) {
 function closePhoto() {
   openApp('photos');
 }
+const hiddenCode = "1105"; // tú decides
+
+function openHidden() {
+  let code = prompt("Código requerido");
+
+  if(code === hiddenCode) {
+    showGallery('hidden');
+  } else {
+    alert("Código incorrecto");
+  }
+}
