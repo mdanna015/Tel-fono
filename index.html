@@ -128,7 +128,7 @@ body {
   background: white;
 }
 
-  .swipe {
+.swipe {
   position: absolute;
   bottom: 30px;
   width: 100%;
@@ -142,6 +142,44 @@ body {
   0% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.app-icon p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.messages {
+  padding: 10px;
+}
+
+.msg {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.me {
+  background: #0b93f6;
+  margin-left: auto;
+}
+
+.other {
+  background: #333;
 }
 </style>
 
@@ -187,12 +225,86 @@ body {
   </div>
 
   <!-- Home -->
-  <div id="home" class="screen">
-    <h3>📱 Inicio</h3>
-    <div class="app">💬 Mensajes</div>
-    <div class="app">🖼️ Fotos</div>
-    <div class="app">⚙️ Sistema</div>
+<div id="home" class="screen">
+  <div class="home-grid">
+
+    <div class="app-icon" onclick="openApp('whatsapp')">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+      <p>WhatsApp</p>
+    </div>
+
+    <div class="app-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png">
+      <p>Fotos</p>
+    </div>
+<div id="whatsapp" class="screen hidden">
+
+  <h3>WhatsApp</h3>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button onclick="showTab('chats')">Chats</button>
+    <button onclick="showTab('status')">Estados</button>
+    <button onclick="showTab('contacts')">Contactos</button>
+    <button onclick="showTab('settings')">Settings</button>
   </div>
+
+  <!-- CHATS -->
+  <div id="chats" class="tab">
+    <div onclick="openChat('chat1')" class="chat-item">
+      <p><b>Auron</b></p>
+      <p>Último mensaje...</p>
+    </div>
+  </div>
+
+  <!-- ESTADOS -->
+  <div id="status" class="tab hidden">
+    <div onclick="viewStatus()">
+      <p>Ver historia de Alexby</p>
+    </div>
+  </div>
+
+  <!-- CONTACTOS -->
+  <div id="contacts" class="tab hidden">
+    <div onclick="openContact()">
+      <p><b>Auron</b></p>
+      <p>Online</p>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="settings" class="tab hidden">
+    <p><b>Tu número:</b> 8888-8888</p>
+    <p><b>Estado:</b> No molestar</p>
+  </div>
+
+  <button onclick="goHome()">⬅</button>
+</div>
+
+<div id="chat1" class="screen hidden">
+
+  <h3>Auron</h3>
+
+  <div class="messages">
+
+    <div class="msg other">Hola 👀</div>
+    <div class="msg me">Todo bien</div>
+
+    <div class="msg other">
+      <img src="https://via.placeholder.com/150" width="100%">
+    </div>
+
+    <div class="msg other">📍 Ubicación compartida</div>
+
+    <div class="msg other">🎧 Audio (simulado)</div>
+
+  </div>
+
+  <button onclick="openApp('whatsapp')">⬅</button>
+
+</div>
+  </div>
+</div>
 
 </div>
 
@@ -278,7 +390,27 @@ function clearPin() {
   pin = pin.slice(0, -1);
   updateDots();
 }
+function openApp(app) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+  document.getElementById(app).classList.remove('hidden');
+}
 
+function showTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.add('hidden'));
+  document.getElementById(tab).classList.remove('hidden');
+}
+
+function openChat(chat) {
+  openApp(chat);
+}
+
+function openContact() {
+  alert("Perfil del contacto");
+}
+
+function viewStatus() {
+  alert("Historia 👀");
+}
 </script>
 
 </body>
