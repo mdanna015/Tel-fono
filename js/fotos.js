@@ -37,3 +37,42 @@ function openEliminated() {
     alert("❌ Código incorrecto");
   }
 }
+
+// Favoritos funcional (solo muestra las fotos existentes)
+function renderFavorites() {
+  const grid = document.getElementById('favoritesGrid');
+  grid.innerHTML = ''; // limpiar
+  // Ejemplo de fotos favoritas
+  const favs = [
+    "https://picsum.photos/200?10",
+    "https://picsum.photos/200?11",
+    "https://picsum.photos/200?12"
+  ];
+  favs.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.onclick = () => openPhoto(src);
+    grid.appendChild(img);
+  });
+}
+renderFavorites();
+
+// Álbumes funcional
+const albumsData = {
+  viajes: ["https://picsum.photos/200?20", "https://picsum.photos/200?21"],
+  amigos: ["https://picsum.photos/200?30", "https://picsum.photos/200?31"],
+  recuerdos: ["https://picsum.photos/200?40", "https://picsum.photos/200?41"],
+  otros: ["https://picsum.photos/200?50"]
+};
+
+function showAlbum(name) {
+  const content = document.getElementById('albumContent');
+  content.classList.remove('hidden');
+  content.innerHTML = ''; // limpiar
+  albumsData[name].forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.onclick = () => openPhoto(src);
+    content.appendChild(img);
+  });
+}
