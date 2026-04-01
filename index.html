@@ -109,6 +109,23 @@ body {
   border-radius: 15px;
   text-align: center;
 }
+
+    .pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.dot.filled {
+  background: white;
+}
 </style>
 
 </head>
@@ -129,7 +146,12 @@ body {
 
   <!-- PIN -->
   <div id="pin" class="screen">
-    <div class="pin-dots" id="dots">____</div>
+<div class="pin-dots" id="dots">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
 
     <div class="keypad">
       <div class="key" onclick="press(1)">1</div>
@@ -209,10 +231,17 @@ function press(num) {
 }
 
 function updateDots() {
-  document.getElementById("dots").innerText =
-    "*".repeat(pin.length) + "_".repeat(4 - pin.length);
-}
+  const dots = document.querySelectorAll(".dot");
 
+  dots.forEach((dot, i) => {
+    if(i < pin.length) {
+      dot.classList.add("filled");
+    } else {
+      dot.classList.remove("filled");
+    }
+  });
+}
+  
 function clearPin() {
   pin = pin.slice(0, -1);
   updateDots();
