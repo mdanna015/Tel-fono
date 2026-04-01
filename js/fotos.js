@@ -1,3 +1,5 @@
+let deletedPhotos = [];
+
 function showGallery(tab) {
   document.querySelectorAll('.gallery-tab')
     .forEach(t => t.classList.add('hidden'));
@@ -5,6 +7,7 @@ function showGallery(tab) {
   document.getElementById(tab)
     .classList.remove('hidden');
 }
+
 function openPhoto(src) {
   document.getElementById("photoViewer").classList.remove("hidden");
   document.getElementById("fullPhoto").src = src;
@@ -13,32 +16,26 @@ function openPhoto(src) {
 function closePhoto() {
   document.getElementById("photoViewer").classList.add("hidden");
 }
-function openPhoto(src) {
-  document.getElementById("photoViewer").classList.remove("hidden");
-  document.getElementById("fullPhoto").src = src;
-}
 
-function closePhoto() {
-  document.getElementById("photoViewer").classList.add("hidden");
-}
 function moveToDeleted(src) {
   deletedPhotos.push(src);
-  alert("Movida a eliminados");
   renderDeleted();
+  alert("Movida a eliminados");
 }
 
 function renderDeleted() {
   const container = document.getElementById("deleted");
+
   container.innerHTML = "<h4>🗑 Eliminados</h4>";
 
   deletedPhotos.forEach(src => {
-    container.innerHTML += `<img src="${src}" onclick="openPhoto('${src}')">`;
+    container.innerHTML += `
+      <img src="${src}" onclick="openPhoto('${src}')">
+    `;
   });
 }
-function closePhoto() {
-  openApp('photos');
-}
-const hiddenCode = "1105"; // tú decides
+
+const hiddenCode = "1105";
 
 function openHidden() {
   let code = prompt("Código requerido");
