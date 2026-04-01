@@ -115,3 +115,13 @@
   display: flex;
   gap: 10px;
 }
+
+.auron-bg {
+  background: url('https://i.imgur.com/8Km9tLL.png');
+  background-size: cover;
+}
+
+.otro-bg {
+  background: url('https://i.imgur.com/Z6XbK0B.png');
+  background-size: cover;
+}
