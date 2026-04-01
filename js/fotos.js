@@ -6,11 +6,21 @@ function showGallery(tab) {
     .classList.remove('hidden');
 }
 function openPhoto(src) {
+  document.getElementById("photoViewer").classList.remove("hidden");
   document.getElementById("fullPhoto").src = src;
-  openApp('photoViewer');
 }
-let deletedPhotos = [];
 
+function closePhoto() {
+  document.getElementById("photoViewer").classList.add("hidden");
+}
+function openPhoto(src) {
+  document.getElementById("photoViewer").classList.remove("hidden");
+  document.getElementById("fullPhoto").src = src;
+}
+
+function closePhoto() {
+  document.getElementById("photoViewer").classList.add("hidden");
+}
 function moveToDeleted(src) {
   deletedPhotos.push(src);
   alert("Movida a eliminados");
