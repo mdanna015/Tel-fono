@@ -14,12 +14,13 @@ function closePhoto() {
   document.getElementById("photoViewer").classList.add("hidden");
 }
 
-const eliminatedCode = "0000";
+// Código para eliminados
+const eliminatedCode = "0000"; // código propio
 
 function openEliminated() {
-  let code = prompt("Ingresa el código");
+  let code = prompt("Ingresa el código para eliminados");
 
-  if(code === hiddenCode) {
+  if(code === eliminatedCode) {
     document.getElementById("hiddenContent").classList.remove("hidden");
   } else {
     alert("❌ Código incorrecto");
