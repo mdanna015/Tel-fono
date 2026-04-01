@@ -71,16 +71,20 @@
       <div onclick="showTab('settings')" class="tab-btn">Ajustes</div>
     </div>
 
-    <div id="chats" class="tab">
-      <div class="chat-item" onclick="openApp('chat1')">
-        <img src="https://i.pravatar.cc/40?img=1">
-        <div>
-          <b>Auron</b>
-          <p>Último mensaje...</p>
-        </div>
-        <span class="time-chat">9:41</span>
-      </div>
-    </div>
+<div class="chat-header">
+  <span onclick="openApp('whatsapp')" class="back">←</span>
+
+  <img src="https://i.pravatar.cc/40?img=1" onclick="openProfile()">
+
+  <div class="info">
+    <b>Auron</b>
+    <p class="online">en línea</p>
+  </div>
+
+  <div class="icons">
+    📞 📹 ⋮
+  </div>
+</div>
 
     <div id="status" class="tab hidden">
       <p>Historia 👀</p>
