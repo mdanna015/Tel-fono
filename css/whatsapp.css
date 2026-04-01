@@ -1,6 +1,5 @@
 /* WHATSAPP */
 #whatsapp { color: white; padding: 10px; }
-
 .tabs button {
   margin: 5px;
 }
@@ -116,6 +115,7 @@
   gap: 10px;
 }
 
+/* WALLPAPER */
 .auron-bg {
   background: url('https://i.imgur.com/8Km9tLL.png');
   background-size: cover;
@@ -124,4 +124,22 @@
 .otro-bg {
   background: url('https://i.imgur.com/Z6XbK0B.png');
   background-size: cover;
+}
+
+/* ESTADO */
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.status-item img {
+  border-radius: 50%;
+}
+
+.status-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
