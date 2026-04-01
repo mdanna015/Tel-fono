@@ -185,9 +185,9 @@
     <!-- FOTOS -->
   <div id="allPhotos" class="gallery-tab">
     <div class="grid">
-      <img src="https://picsum.photos/200?1">
-      <img src="https://picsum.photos/200?2">
-      <img src="https://picsum.photos/200?3">
+      <img src="https://picsum.photos/200?1" onclick="openPhoto(this.src)">
+      <img src="https://picsum.photos/200?2" onclick="openPhoto(this.src)">
+      <img src="https://picsum.photos/200?3" onclick="openPhoto(this.src)">
     </div>
   </div>
 
@@ -223,6 +223,10 @@
     <div onclick="showGallery('deleted')">Eliminados</div>
   </div>
   </div>
+<div id="photoViewer" class="screen hidden photo-viewer">
+  <img id="fullPhoto">
+  <button onclick="closePhoto()">✖</button>
+</div>
 </div>
 <!-- JS -->
 <script src="js/main.js"></script>
