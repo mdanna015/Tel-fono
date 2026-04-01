@@ -203,6 +203,9 @@
 }
 
 /* BARRA CHAT */
+.chat-screen {
+  position: relative;
+}
 .chat-input {
   position: absolute;
   bottom: 0;
