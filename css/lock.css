@@ -1,3 +1,4 @@
+/* LOCK */
 #lock {
   background: url('https://images.unsplash.com/photo-1517816428104-797678c7cf0c') center/cover;
   color: white;
@@ -6,11 +7,49 @@
 }
 
 .time { font-size: 50px; }
-.date { font-size: 18px; }
+.date { font-size: 18px; opacity: 0.8; }
 
 .swipe {
   position: absolute;
   bottom: 30px;
   width: 100%;
   text-align: center;
+  animation: float 1.5s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* PIN */
+#pin { color: white; text-align: center; padding-top: 50px; }
+
+.pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.dot.filled { background: white; }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.key {
+  background: #333;
+  padding: 15px;
+  border-radius: 50%;
 }
