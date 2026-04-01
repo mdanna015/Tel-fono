@@ -14,15 +14,10 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: #111;
   display: flex;
   justify-content: space-around;
+  background: #111;
   padding: 10px;
-}
-
-.gallery-bar div {
-  color: white;
-  font-size: 12px;
 }
 .photo-viewer {
   background: black;
