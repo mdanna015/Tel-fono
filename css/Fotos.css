@@ -1,1 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
 
+.grid img, .grid video {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.gallery-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.gallery-bar div {
+  color: white;
+  font-size: 12px;
+}
