@@ -161,3 +161,36 @@
 .status-view {
   position: relative;
 }
+
+/* AUDIO */
+.audio-msg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #222;
+}
+
+.audio-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.audio-bar {
+  flex: 1;
+  height: 5px;
+  background: #555;
+  border-radius: 10px;
+}
+
+.audio-progress {
+  height: 5px;
+  width: 0%;
+  background: #25D366;
+  border-radius: 10px;
+}
