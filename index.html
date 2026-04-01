@@ -141,75 +141,78 @@
     </div>
   </div>
 
+  <!-- MENSAJES -->
   <div class="messages">
     <div class="msg other">Hola 👀</div>
     <div class="msg me">Todo bien</div>
 
+    <!-- AUDIO -->
+    <div class="msg other audio-msg">
+      <div class="audio-btn" onclick="toggleAudio('audio1', this)">▶</div>
+      <div class="audio-bar">
+        <div class="audio-progress" id="progress-audio1"></div>
+      </div>
+      <audio id="audio1" src="audio/audio1.mp3"></audio>
+    </div>
+
+    <!-- IMÁGENES -->
+    <div class="msg me">
+      <img src="https://picsum.photos/200">
+    </div>
+
+    <div class="msg other">
+      <img src="https://picsum.photos/201">
+    </div>
+  </div>
+
+  <!-- INPUT (FUERA DE messages) -->
   <div class="chat-input">
-  <span class="icon">➕</span>
-  <div class="fake-input">
-    Mensaje
+    <span class="icon">➕</span>
+    <div class="fake-input">Mensaje</div>
+    <span class="icon">📷</span>
+    <span class="icon">🎤</span>
   </div>
-  <span class="icon">📷</span>
-  <span class="icon">🎤</span>
-</div>
-    <!--AUDIO CORRECTO -->
-<div class="msg other audio-msg">
-  <div class="audio-btn" onclick="toggleAudio('audio1', this)">
-    ▶
-  </div>
-  <div class="audio-bar">
-    <div class="audio-progress" id="progress-audio1"></div>
-  </div>
-  <audio id="audio1" src="audio/audio1.mp3"></audio>
-</div>
 
-<!--IMAGENES -->
-<div class="msg me">
-  <img src="https://picsum.photos/200">
-</div>
-
-<div class="msg other">
-  <img src="https://picsum.photos/201">
+  <button onclick="openApp('whatsapp')">⬅</button>
 </div>
 
     <div id="photos" class="screen hidden">
   <h3>Fotos</h3>
 
   <!-- CONTENIDO -->
-  <div id="gallery-content">
+<div id="gallery-content">
 
     <!-- FOTOS -->
-    <div id="allPhotos" class="gallery-tab">
-      <div class="grid">
-        <img src="https://picsum.photos/200?1">
-        <img src="https://picsum.photos/200?2">
-        <img src="https://picsum.photos/200?3">
-      </div>
-    </div>
+<div id="allPhotos" class="gallery-tab">
+  <div class="grid">
+    <img src="https://picsum.photos/200?1">
+    <img src="https://picsum.photos/200?2">
+    <img src="https://picsum.photos/200?3">
+  </div>
+</div>
 
     <!-- VIDEOS -->
-    <div id="videos" class="gallery-tab hidden">
-      <div class="grid">
-        <video src="" controls></video>
-      </div>
-    </div>
+   <div id="videos" class="gallery-tab hidden">
+    <div class="grid">
+      <video src="" controls></video>
+     </div>
+   </div>
 
     <!-- FAVORITOS -->
-    <div id="favorites" class="gallery-tab hidden">
-      <p>⭐ Tus favoritos</p>
-    </div>
+   <div id="favorites" class="gallery-tab hidden">
+     <p>⭐ Tus favoritos</p>
+  </div>
 
     <!-- OCULTOS -->
-    <div id="hidden" class="gallery-tab hidden">
-      <p>🔒 Oculto</p>
-    </div>
+   <div id="hidden" class="gallery-tab hidden">
+     <p>🔒 Oculto</p>
+   </div>
 
     <!-- ELIMINADOS -->
-    <div id="deleted" class="gallery-tab hidden">
-      <p>🗑 Eliminados</p>
-    </div>
-  </div>
+   <div id="deleted" class="gallery-tab hidden">
+    <p>🗑 Eliminados</p>
+   </div>
+ </div>
 
   <!-- BARRA ABAJO -->
   <div class="gallery-bar">
