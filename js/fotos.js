@@ -18,20 +18,18 @@ let deletedPhotos = [];
 function moveToDeleted(src) {
   deletedPhotos.push(src);
   renderDeleted();
-  alert("🗑 Movida a eliminados");
+  alert("🗑 Foto movida a eliminados");
 }
 
 function renderDeleted() {
   const container = document.getElementById("deleted");
 
-  container.innerHTML = "<p>🗑 Eliminados</p><div class='grid'></div>";
-  const grid = container.querySelector(".grid");
+  container.innerHTML = "<p>🗑 Eliminados</p>";
 
   deletedPhotos.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.onclick = () => openPhoto(src);
-    grid.appendChild(img);
+    container.innerHTML += `
+      <img src="${src}" onclick="openPhoto('${src}')">
+    `;
   });
 }
 const hiddenCode = "1105";
