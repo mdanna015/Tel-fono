@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Teléfono Narrativo</title>
+  
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/lock.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/whatsapp.css">
+  
 </style>
 </head>
 
@@ -147,19 +153,6 @@
 
 <script>
 
-function show(screen) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-    s.classList.add('hidden');
-  });
-
-  document.getElementById(screen).classList.remove('hidden');
-  document.getElementById(screen).classList.add('active');
-}
-
-function openApp(app) {
-  show(app);
-}
 
 // swipe
 let startY = 0;
