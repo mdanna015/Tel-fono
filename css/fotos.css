@@ -10,16 +10,29 @@
   object-fit: cover;
 }
 
+#photos {
+  position: relative;
+  height: 100%;
+}
+
+#gallery-content {
+  height: calc(100% - 60px); /* deja espacio para la barra */
+  overflow-y: auto;
+}
+
 .gallery-bar {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
-  background: #111;
+  height: 60px;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  align-items: center;
+  background: #111;
+  color: white;
+  z-index: 100;
 }
-
 .gallery-bar div {
   color: white;
   font-size: 12px;
