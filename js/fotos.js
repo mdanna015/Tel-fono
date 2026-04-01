@@ -22,16 +22,15 @@ function moveToDeleted(src) {
   alert("🗑 Foto movida a eliminados");
 }
 
-function renderDeleted() {
-  const container = document.getElementById("deleted");
+function openDeleted() {
+  let code = prompt("Código para eliminados");
 
-  container.innerHTML = "<p>🗑 Eliminados</p>";
-
-  deletedPhotos.forEach(src => {
-    container.innerHTML += `
-      <img src="${src}" onclick="openPhoto('${src}')">
-    `;
-  });
+  if(code === "0000") {
+    showGallery('deleted');
+  } else {
+    alert("❌ Código incorrecto");
+  }
+}
 }
 const hiddenCode = "1105";
 
