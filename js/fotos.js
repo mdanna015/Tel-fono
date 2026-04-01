@@ -14,41 +14,18 @@ function closePhoto() {
   document.getElementById("photoViewer").classList.add("hidden");
 }
 
-let deletedPhotos = [];
+const eliminatedCode = "0000";
 
-// Mueve foto a eliminados
-function moveToDeleted(src) {
-  if(!deletedPhotos.includes(src)) {
-    deletedPhotos.push(src);
-    renderDeleted();
-    alert("🗑 Foto movida a eliminados");
-  }
-}
+function openEliminated() {
+  let code = prompt("Ingresa el código");
 
-// Dibuja fotos eliminadas
-function renderDeleted() {
-  const grid = document.getElementById('deletedGrid');
-  grid.innerHTML = ''; // limpiar
-
-  deletedPhotos.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.onclick = () => openPhoto(src);
-    grid.appendChild(img);
-  });
-}
-
-// Abre galería eliminados con código
-function openDeleted() {
-  let code = prompt("Código para eliminados");
-
-  if(code === "0000") {
-    showGallery('deleted');
-    renderDeleted();
+  if(code === hiddenCode) {
+    document.getElementById("hiddenContent").classList.remove("hidden");
   } else {
     alert("❌ Código incorrecto");
   }
 }
+
 const hiddenCode = "1105";
 
 function openHidden() {
