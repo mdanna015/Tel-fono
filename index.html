@@ -220,10 +220,11 @@
 
     <!-- ELIMINADOS -->
 <!-- ELIMINADOS -->
-<div id="deleted" class="gallery-tab hidden">
-  <p>🗑 Fotos eliminadas</p>
-  <div class="grid" id="deletedGrid">
-    <!-- Fotos eliminadas aparecerán aquí -->
+<div id="hidden" class="gallery-tab hidden">
+  <p onclick="openHidden()">🗑️ Eliminados</p>
+
+  <div id="hiddenContent" class="hidden">
+    <img src="img/secre.jpg" onclick="openPhoto(this.src)">
   </div>
 </div>
 
