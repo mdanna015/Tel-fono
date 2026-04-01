@@ -54,17 +54,19 @@
   <!-- HOME -->
   <div id="home" class="screen">
     <div class="home-grid">
+      
       <div class="app-icon" onclick="openApp('whatsapp')">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
         <p>WhatsApp</p>
       </div>
-    </div>
+      
       <div class="app-icon" onclick="openApp('photos')">
         <img src="https://cdn-icons-png.flaticon.com/512/337/337940.png">
         <p>Fotos</p>
       </div>
+      
+    </div>
   </div>
-
   <!-- WHATSAPP -->
 <div id="whatsapp" class="screen hidden">
   <h3>WhatsApp</h3>
@@ -207,13 +209,13 @@
   </div>
 
     <!-- OCULTOS -->
-  <div onclick="openHidden()">Ocultos</div>
-    <p>🔒 Oculto</p>
-  </div>
-
-  <div id="hidden" class="gallery-tab hidden">
+<div id="hidden" class="gallery-tab hidden">
+  <p onclick="openHidden()">🔒 Carpeta oculta</p>
+  <div id="hiddenContent" class="hidden">
     <img src="img/secreto1.jpg">
   </div>
+</div>
+    
     <!-- ELIMINADOS -->
   <div id="deleted" class="gallery-tab hidden">
     <p>🗑 Eliminados</p>
@@ -228,11 +230,12 @@
     <div onclick="showGallery('hidden')">Ocultos</div>
     <div onclick="showGallery('deleted')">Eliminados</div>
   </div>
-  </div>
+  
 <div id="photoViewer" class="screen hidden photo-viewer">
   <img id="fullPhoto">
   <button onclick="closePhoto()">✖</button>
 </div>
+
 </div>
 <!-- JS -->
 <script src="js/main.js"></script>
