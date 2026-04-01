@@ -1,1 +1,16 @@
+#lock {
+  background: url('https://images.unsplash.com/photo-1517816428104-797678c7cf0c') center/cover;
+  color: white;
+  text-align: center;
+  padding-top: 60px;
+}
 
+.time { font-size: 50px; }
+.date { font-size: 18px; }
+
+.swipe {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
