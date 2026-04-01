@@ -1,1 +1,13 @@
+/* HOME */
+#home { color: white; }
 
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-icon img { width: 50px; }
+.app-icon p { font-size: 12px; }
