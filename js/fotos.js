@@ -19,19 +19,16 @@ function closePhoto() {
 
 function moveToDeleted(src) {
   deletedPhotos.push(src);
-  renderDeleted();
   alert("Movida a eliminados");
+  renderDeleted();
 }
 
 function renderDeleted() {
   const container = document.getElementById("deleted");
-
-  container.innerHTML = "<h4>🗑 Eliminados</h4>";
+  container.innerHTML = "<p>🗑 Eliminados</p>";
 
   deletedPhotos.forEach(src => {
-    container.innerHTML += `
-      <img src="${src}" onclick="openPhoto('${src}')">
-    `;
+    container.innerHTML += `<img src="${src}" onclick="openPhoto('${src}')">`;
   });
 }
 
@@ -41,7 +38,7 @@ function openHidden() {
   let code = prompt("Código requerido");
 
   if(code === hiddenCode) {
-    showGallery('hidden');
+    document.getElementById("hiddenContent").classList.remove("hidden");
   } else {
     alert("Código incorrecto");
   }
