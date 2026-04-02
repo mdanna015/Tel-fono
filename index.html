@@ -231,21 +231,25 @@
   </div>
 </div>
 
-  <!-- ALBUMES -->
+<!-- ALBUMES -->
 <!-- ALBUMES -->
 <div id="albums" class="gallery-tab hidden">
-  <p>📁 Álbumes</p> <!-- ✅ cerrar el <p> -->
+  <p>📁 Álbumes</p>
 
-  <div class="album-grid">
-    <div class="album" onclick="showAlbum('viajes')">Viajes</div>
-    <div class="album" onclick="showAlbum('amigos')">Amigos</div>
-    <div class="album" onclick="showAlbum('recuerdos')">Recuerdos</div>
-    <div class="album" onclick="showAlbum('otros')">Otros</div>
+  <!-- LISTA DE ÁLBUMES -->
+  <div id="albumsList" class="album-grid">
+    <div class="album" onclick="openAlbum('viajes')">🌍 Viajes</div>
+    <div class="album" onclick="openAlbum('amigos')">👥 Amigos</div>
+    <div class="album" onclick="openAlbum('recuerdos')">💭 Recuerdos</div>
+    <div class="album" onclick="openAlbum('otros')">📦 Otros</div>
   </div>
-  
-  <div id="albumContent" class="grid hidden"></div>
+
+  <!-- CONTENIDO DEL ÁLBUM -->
+  <div id="albumView" class="hidden">
+    <button onclick="backToAlbums()">⬅ Volver</button>
+    <div id="albumGrid" class="grid"></div>
+  </div>
 </div>
-    
   <!-- BARRA ABAJO -->
 <div class="gallery-bar">
   <div onclick="showGallery('allPhotos')">Fotos</div>
