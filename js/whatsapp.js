@@ -1,12 +1,16 @@
 function showTab(tab) {
-  document.querySelectorAll('.tab')
-    .forEach(t => t.classList.add('hidden'));
-
-  document.getElementById(tab)
-    .classList.remove('hidden');
+  document.querySelectorAll('.tab').forEach(t => t.classList.add('hidden'));
+  document.getElementById(tab).classList.remove('hidden');
 }
 
-// STATUS
+function openProfile() {
+  openApp('profile');
+}
+
+function openStatus(id) {
+  openApp(id);
+}
+
 let statusIndex = 0;
 
 const statuses = [
@@ -33,17 +37,17 @@ function playStatus() {
     width += 1;
     progress.style.width = width + "%";
 
-    if (width >= 100) {
+    if(width >= 100) {
       clearInterval(interval);
       nextStatus();
     }
-  }, 50);
+  }, 50); // velocidad
 }
 
 function nextStatus() {
   statusIndex++;
 
-  if (statusIndex < statuses.length) {
+  if(statusIndex < statuses.length) {
     playStatus();
   } else {
     closeStatus();
@@ -54,13 +58,11 @@ function closeStatus() {
   statusIndex = 0;
   openApp('whatsapp');
 }
-
-// AUDIO
 function toggleAudio(id, btn) {
   const audio = document.getElementById(id);
   const progress = document.getElementById("progress-" + id);
 
-  if (audio.paused) {
+  if(audio.paused) {
     audio.play();
     btn.innerText = "⏸";
   } else {
