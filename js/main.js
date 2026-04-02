@@ -5,10 +5,17 @@ function show(screen) {
   });
 
   const target = document.getElementById(screen);
+
+  if (!target) {
+    console.error("Pantalla no encontrada:", screen);
+    return; // 👈 evita que TODO se rompa
+  }
+
   target.classList.remove('hidden');
   target.classList.add('active');
 }
 
 function openApp(app) {
+  if (!app) return; // 👈 evita llamadas vacías
   show(app);
 }
