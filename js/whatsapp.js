@@ -52,9 +52,8 @@ function nextStatus() {
 
 function closeStatus() {
   statusIndex = 0;
-  openApp();
+  openApp('whatsapp'); // 👈 AQUÍ
 }
-
 // AUDIO
 function toggleAudio(id, btn) {
   const audio = document.getElementById(id);
