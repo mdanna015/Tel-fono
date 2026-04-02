@@ -232,14 +232,25 @@
 <div id="albums" class="gallery-tab hidden">
   <p>📁 Álbumes</p>
 
-  <!-- LISTA DE ÁLBUMES -->
-  <div id="albumsList" class="album-grid">
-    <div class="album" data-icon="🌍" onclick="openAlbum('viajes')">Viajes</div>
-    <div class="album" data-icon="👥" onclick="openAlbum('amigos')">Amigos</div>
-    <div class="album" data-icon="💭" onclick="openAlbum('recuerdos')">Recuerdos</div>
-    <div class="album" data-icon="📦" onclick="openAlbum('otros')">Otros</div>
-  </div>
+  <div class="album" onclick="openAlbum('viajes')">
+  <span class="icon">🌍</span>
+  <span class="name">Viajes</span>
+</div>
 
+<div class="album" onclick="openAlbum('amigos')">
+  <span class="icon">👥</span>
+  <span class="name">Amigos</span>
+</div>
+
+<div class="album" onclick="openAlbum('recuerdos')">
+  <span class="icon">💭</span>
+  <span class="name">Recuerdos</span>
+</div>
+
+<div class="album" onclick="openAlbum('otros')">
+  <span class="icon">📦</span>
+  <span class="name">Otros</span>
+</div>
   <!-- CONTENIDO DEL ÁLBUM -->
   <div id="albumView" class="hidden">
     <button onclick="backToAlbums()">⬅ Volver</button>
