@@ -78,8 +78,12 @@ function toggleAudio(id, btn) {
 
 function goHome() {
   document.querySelectorAll('.screen')
-    .forEach(s => s.classList.add('hidden'));
+    .forEach(s => {
+      s.classList.remove('active');
+      s.classList.add('hidden');
+    });
 
-  document.getElementById('home')
-    .classList.remove('hidden');
+  const home = document.getElementById('home');
+  home.classList.remove('hidden');
+  home.classList.add('active');
 }
