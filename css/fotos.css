@@ -76,6 +76,11 @@
   font-size: 14px;
   font-weight: bold;
 }
+/* Permite que el click pase al contenedor */
+.album .icon,
+.album .name {
+  pointer-events: none;
+}
 .hidden {
   display: none;
 }
