@@ -74,8 +74,14 @@ function toggleAudio(id, btn) {
     let percent = (audio.currentTime / audio.duration) * 100;
     progress.style.width = percent + "%";
   };
+  
+}
+function scrollToBottom() {
+  const container = document.querySelector(".messages");
+  container.scrollTop = container.scrollHeight;
 }
 
+document.addEventListener("DOMContentLoaded", scrollToBottom);
 function goHome() {
   document.querySelectorAll('.screen')
     .forEach(s => {
