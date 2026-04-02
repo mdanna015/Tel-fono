@@ -1,11 +1,8 @@
-function openApp(appId) {
-  document.querySelectorAll('.screen')
-    .forEach(s => {
-      s.classList.remove('active');
-      s.classList.add('hidden');
-    });
+function goHome() {
+  document.querySelectorAll('.screen.active')
+    .forEach(s => s.classList.remove('active'));
 
-  const app = document.getElementById(appId);
-  app.classList.remove('hidden');
-  app.classList.add('active');
+  const home = document.getElementById('home');
+  home.classList.remove('hidden');
+  home.classList.add('active');
 }
