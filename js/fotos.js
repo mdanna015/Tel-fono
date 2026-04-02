@@ -8,6 +8,10 @@ function showGallery(tab) {
 
   document.getElementById(tab)
     .classList.remove('hidden');
+  
+  // Reset ocultos y eliminados
+  document.getElementById("hiddenContent").classList.add("hidden");
+  document.getElementById("eliminatedContent").classList.add("hidden");
 
   // Reset especial para álbumes
   if (tab === "albums") {
