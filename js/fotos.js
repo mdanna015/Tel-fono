@@ -60,7 +60,31 @@ function openEliminated() {
     alert("❌ Código incorrecto");
   }
 }
+// =======================
+// ACCESO DIRECTO DESDE BARRA
+// =======================
 
+function accessHidden() {
+  let code = prompt("Código para carpeta oculta");
+
+  if (code === hiddenCode) {
+    showGallery('hidden');
+    document.getElementById("hiddenContent").classList.remove("hidden");
+  } else {
+    alert("❌ Código incorrecto");
+  }
+}
+
+function accessEliminated() {
+  let code = prompt("Código para eliminados");
+
+  if (code === eliminatedCode) {
+    showGallery('eliminated');
+    document.getElementById("eliminatedContent").classList.remove("hidden");
+  } else {
+    alert("❌ Código incorrecto");
+  }
+}
 // =======================
 // FAVORITOS
 // =======================
