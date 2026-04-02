@@ -152,8 +152,11 @@ function openAlbum(name) {
   });
 }
 function backToAlbums() {
-  document.getElementById("albumView").classList.add("hidden");
-  document.getElementById("albumsList").classList.remove("hidden");
+const hiddenEl = document.getElementById("hiddenContent");
+const elimEl = document.getElementById("eliminatedContent");
+
+if (hiddenEl) hiddenEl.classList.add("hidden");
+if (elimEl) elimEl.classList.add("hidden");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
