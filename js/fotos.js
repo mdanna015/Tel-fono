@@ -57,22 +57,43 @@ function renderFavorites() {
 }
 renderFavorites();
 
-// Álbumes funcional
+// Datos de álbumes
 const albumsData = {
-  viajes: ["https://picsum.photos/200?20", "https://picsum.photos/200?21"],
-  amigos: ["https://picsum.photos/200?30", "https://picsum.photos/200?31"],
-  recuerdos: ["https://picsum.photos/200?40", "https://picsum.photos/200?41"],
-  otros: ["https://picsum.photos/200?50"]
+  viajes: [
+    "https://picsum.photos/200?20",
+    "https://picsum.photos/200?21"
+  ],
+  amigos: [
+    "https://picsum.photos/200?30",
+    "https://picsum.photos/200?31"
+  ],
+  recuerdos: [
+    "https://picsum.photos/200?40",
+    "https://picsum.photos/200?41"
+  ],
+  otros: [
+    "https://picsum.photos/200?50"
+  ]
 };
 
-function showAlbum(name) {
-  const content = document.getElementById('albumContent');
-  content.classList.remove('hidden');
-  content.innerHTML = ''; // limpiar
+// Abrir álbum
+function openAlbum(name) {
+  document.getElementById("albumsList").classList.add("hidden");
+  document.getElementById("albumView").classList.remove("hidden");
+
+  const grid = document.getElementById("albumGrid");
+  grid.innerHTML = "";
+
   albumsData[name].forEach(src => {
-    const img = document.createElement('img');
+    const img = document.createElement("img");
     img.src = src;
     img.onclick = () => openPhoto(src);
-    content.appendChild(img);
+    grid.appendChild(img);
   });
+}
+
+// Volver a la lista de álbumes
+function backToAlbums() {
+  document.getElementById("albumView").classList.add("hidden");
+  document.getElementById("albumsList").classList.remove("hidden");
 }
