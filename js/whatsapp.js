@@ -52,7 +52,7 @@ function nextStatus() {
 
 function closeStatus() {
   statusIndex = 0;
-  openApp('whatsapp');
+  openApp();
 }
 
 // AUDIO
