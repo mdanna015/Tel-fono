@@ -1,20 +1,50 @@
-function show(screen) {
+// =======================
+// HISTORIAL GLOBAL
+// =======================
+
+let historyStack = [];
+
+// =======================
+// MOSTRAR PANTALLA
+// =======================
+
+function show(screenId) {
   document.querySelectorAll('.screen').forEach(s => {
     s.classList.remove('active');
     s.classList.add('hidden');
   });
 
-  document.getElementById(screen).classList.remove('hidden');
-  document.getElementById(screen).classList.add('active');
+  const screen = document.getElementById(screenId);
+  if (screen) {
+    screen.classList.remove('hidden');
+    screen.classList.add('active');
+  }
 }
 
-function openApp(app) {
-  show(app);
-}
-function show(screenId) {
-  document.querySelectorAll('.screen')
-    .forEach(s => s.classList.remove('active'));
+// =======================
+// ABRIR APP (GUARDA HISTORIAL)
+// =======================
 
-  document.getElementById(screenId)
-    .classList.add('active');
+function openApp(screenId) {
+  const current = document.querySelector('.screen.active')?.id;
+
+  if (current && current !== screenId) {
+    historyStack.push(current);
+  }
+
+  show(screenId);
+}
+
+// =======================
+// VOLVER ATRÁS
+// =======================
+
+function goBack() {
+  if (historyStack.length === 0) {
+    show('home');
+    return;
+  }
+
+  const prev = historyStack.pop();
+  show(prev);
 }
