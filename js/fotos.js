@@ -151,7 +151,6 @@ function openAlbum(name) {
     grid.appendChild(img);
   });
 }
-
 function backToAlbums() {
   document.getElementById("albumView").classList.add("hidden");
   document.getElementById("albumsList").classList.remove("hidden");
