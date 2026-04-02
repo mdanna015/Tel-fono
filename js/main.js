@@ -11,3 +11,10 @@ function show(screen) {
 function openApp(app) {
   show(app);
 }
+function show(screenId) {
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
+
+  document.getElementById(screenId)
+    .classList.add('active');
+}
