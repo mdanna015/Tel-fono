@@ -29,13 +29,13 @@ body {
 
 .home-btn {
   position: absolute;
-  top: 9px;
-  left: 15;
+  top: 10px;
+  left: 20;
   transform: translateX(-50%);
   background: #222;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 6px 12px;
   font-size: 14px;
   z-index: 200;
