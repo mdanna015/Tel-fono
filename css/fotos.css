@@ -16,7 +16,7 @@
 }
 
 #gallery-content {
-  height: calc(100% - 60px); /* deja espacio para la barra */
+  height: calc(100% - 60px);
   overflow-y: auto;
 }
 
@@ -33,12 +33,14 @@
   color: white;
   z-index: 100;
 }
+
 .gallery-bar div {
   color: white;
   font-size: 12px;
 }
+
 .photo-viewer {
-  position: fixed; /* 🔥 CAMBIO CLAVE */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -49,6 +51,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .hidden {
   display: none;
 }
