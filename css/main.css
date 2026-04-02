@@ -29,8 +29,9 @@ body {
 
 .home-btn {
   position: absolute;
-  top: 10px;        /* 👈 ahora arriba */
-  left: 10px;      /* puedes usar right o center */ 
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #222;
   color: white;
   border: none;
