@@ -1,35 +1,19 @@
-/* WHATSAPP */
-#whatsapp { color: white; padding: 10px; }
-.tabs button {
-  margin: 5px;
+/* =======================
+   WHATSAPP BASE
+======================= */
+#whatsapp {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
-.chat-item {
-  background: #222;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 10px;
-}
-
-/* CHAT */
-.messages { padding: 10px; }
-
-.msg {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
-  max-width: 70%;
-}
-
-.me {
-  background: #0b93f6;
-  margin-left: auto;
-}
-
-.other {
-  background: #333;
-}
-  .bottom-bar {
+/* =======================
+   TABS (Chats / Estados / Ajustes)
+======================= */
+.bottom-bar {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -38,12 +22,24 @@
   justify-content: space-around;
   padding: 10px 0;
   border-top: 1px solid #333;
+  z-index: 10;
 }
 
 .tab-btn {
   color: white;
   font-size: 14px;
 }
+
+/* CONTENIDO DE TABS */
+.tab {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 60px; /* espacio para barra */
+}
+
+/* =======================
+   LISTA DE CHATS
+======================= */
 .chat-item {
   display: flex;
   align-items: center;
@@ -64,33 +60,17 @@
   opacity: 0.6;
 }
 
+/* =======================
+   CHAT INDIVIDUAL
+======================= */
 .chat-screen {
-  background: url('https://i.imgur.com/8Km9tLL.png');
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-size: cover;
 }
 
-.chat-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #075e54;
-  padding: 10px;
-}
-
-.chat-header img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-}
-
-.online {
-  font-size: 12px;
-  opacity: 0.7;
-}
-  .setting-item {
-  padding: 15px;
-  border-bottom: 1px solid #222;
-}
+/* HEADER */
 .chat-header {
   display: flex;
   align-items: center;
@@ -106,63 +86,99 @@
   border-radius: 50%;
 }
 
-.info {
+.online {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* MENSAJES (SCROLL REAL 🔥) */
+.messages {
   flex: 1;
+  overflow-y: auto;
+  padding: 10px;
 }
 
-.icons {
+/* MENSAJE */
+.msg {
+  position: relative;
+  padding: 8px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+/* TIPOS */
+.me {
+  background: #0b93f6;
+  margin-left: auto;
+}
+
+.other {
+  background: #333;
+}
+
+/* HORA + TICKS */
+.msg-info {
   display: flex;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 10px;
+  margin-top: 3px;
+  opacity: 0.7;
 }
 
-/* WALLPAPER */
-.auron-bg {
-  background: url('https://i.imgur.com/8Km9tLL.png');
-  background-size: cover;
+.msg-time {
+  font-size: 10px;
 }
 
-.otro-bg {
-  background: url('https://i.imgur.com/Z6XbK0B.png');
-  background-size: cover;
+.ticks.sent {
+  color: gray;
 }
 
-/* ESTADO */
-.status-item {
+.ticks.delivered {
+  color: gray;
+}
+
+.ticks.read {
+  color: #4fc3f7;
+}
+
+/* =======================
+   INPUT (ABAJO FIJO)
+======================= */
+.chat-input {
+  background: #111;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px;
 }
 
-.status-item img {
-  border-radius: 50%;
+.fake-input {
+  flex: 1;
+  background: #222;
+  border-radius: 20px;
+  padding: 8px 15px;
+  color: #aaa;
+  font-size: 14px;
 }
 
-.status-view img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.status-bar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  height: 4px;
-  background: rgba(255,255,255,0.3);
+.icon {
+  font-size: 18px;
 }
 
-.status-progress {
-  height: 4px;
-  width: 0%;
-  background: white;
+/* =======================
+   IMÁGENES
+======================= */
+.msg img {
+  max-width: 150px;
+  border-radius: 10px;
+  display: block;
 }
 
-.status-view {
-  position: relative;
-}
-
-/* AUDIO */
+/* =======================
+   AUDIO
+======================= */
 .audio-msg {
   display: flex;
   align-items: center;
@@ -195,73 +211,69 @@
   border-radius: 10px;
 }
 
-/* IMAGEN */
-.msg img {
-  max-width: 150px;
-  border-radius: 10px;
-  display: block;
-}
-
-/* BARRA CHAT */
-.chat-screen {
-  position: relative;
-}
-.chat-input {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: #111;
+/* =======================
+   ESTADOS
+======================= */
+.status-item {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px;
 }
 
-.fake-input {
-  flex: 1;
-  background: #222;
-  border-radius: 20px;
-  padding: 8px 15px;
-  color: #aaa;
-  font-size: 14px;
+.status-item img {
+  border-radius: 50%;
 }
-.msg {
-  position: relative;
-  padding: 8px 10px;
-  margin: 5px;
-  border-radius: 10px;
-  max-width: 70%;
-}
-/* Hora */
-.msg-time {
-  display: block;
-  font-size: 10px;
-  opacity: 0.6;
-  margin-top: 3px;
-  text-align: right;
-}
-.msg-info {
-  display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-  font-size: 10px;
-  margin-top: 3px;
-  opacity: 0.7;
 
+.status-view {
+  position: relative;
 }
-/* Estados */
-.ticks.sent {
-  color: gray;
+
+.status-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.ticks.delivered {
-  color: gray;
+
+.status-bar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
 }
-.ticks.read {
-  color: #4fc3f7; /* azul tipo WhatsApp */
+
+.status-progress {
+  height: 4px;
+  width: 0%;
+  background: white;
 }
-.icon {
-  font-size: 18px;
+
+/* =======================
+   AJUSTES
+======================= */
+.setting-item {
+  padding: 15px;
+  border-bottom: 1px solid #222;
 }
+
+/* =======================
+   FONDOS
+======================= */
+.auron-bg {
+  background: url('https://i.imgur.com/8Km9tLL.png');
+  background-size: cover;
+}
+
+.otro-bg {
+  background: url('https://i.imgur.com/Z6XbK0B.png');
+  background-size: cover;
+}
+
+/* =======================
+   BOTÓN ATRÁS
+======================= */
 .back-btn {
   position: absolute;
   top: 10px;
