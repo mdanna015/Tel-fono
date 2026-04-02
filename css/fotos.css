@@ -49,6 +49,20 @@
   justify-content: center;
   align-items: center;
 }
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.album {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
 .hidden {
   display: none;
 }
