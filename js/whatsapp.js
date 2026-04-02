@@ -76,20 +76,3 @@ function toggleAudio(id, btn) {
   };
   
 }
-function scrollToBottom() {
-  const container = document.querySelector(".messages");
-  container.scrollTop = container.scrollHeight;
-}
-
-document.addEventListener("DOMContentLoaded", scrollToBottom);
-function goHome() {
-  document.querySelectorAll('.screen')
-    .forEach(s => {
-      s.classList.remove('active');
-      s.classList.add('hidden');
-    });
-
-  const home = document.getElementById('home');
-  home.classList.remove('hidden');
-  home.classList.add('active');
-}
