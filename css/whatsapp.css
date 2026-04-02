@@ -232,7 +232,6 @@
   border-radius: 10px;
   max-width: 70%;
 }
-
 /* Hora */
 .msg-time {
   display: block;
@@ -240,6 +239,25 @@
   opacity: 0.6;
   margin-top: 3px;
   text-align: right;
+}
+.msg-info {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 10px;
+  margin-top: 3px;
+  opacity: 0.7;
+
+}
+/* Estados */
+.ticks.sent {
+  color: gray;
+}
+.ticks.delivered {
+  color: gray;
+}
+.ticks.read {
+  color: #4fc3f7; /* azul tipo WhatsApp */
 }
 .icon {
   font-size: 18px;
