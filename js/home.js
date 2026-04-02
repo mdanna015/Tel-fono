@@ -1,8 +1,17 @@
-function goHome() {
-  document.querySelectorAll('.screen.active')
-    .forEach(s => s.classList.remove('active'));
+function openApp(appId) {
+  document.querySelectorAll('.screen')
+    .forEach(s => {
+      s.classList.remove('active');
+      s.classList.add('hidden');
+    });
 
-  const home = document.getElementById('home');
-  home.classList.remove('hidden');
-  home.classList.add('active');
+  const app = document.getElementById(appId);
+
+  if (!app) {
+    console.error("No existe:", appId);
+    return;
+  }
+
+  app.classList.remove('hidden');
+  app.classList.add('active');
 }
