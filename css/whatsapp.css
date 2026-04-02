@@ -225,7 +225,22 @@
   color: #aaa;
   font-size: 14px;
 }
+.msg {
+  position: relative;
+  padding: 8px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  max-width: 70%;
+}
 
+/* Hora */
+.msg-time {
+  display: block;
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 3px;
+  text-align: right;
+}
 .icon {
   font-size: 18px;
 }
