@@ -81,6 +81,19 @@
 .album .name {
   pointer-events: none;
 }
+.home-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  z-index: 200;
+}
 .hidden {
   display: none;
 }
