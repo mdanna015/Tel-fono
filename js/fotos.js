@@ -1,10 +1,25 @@
+// =======================
+// GALERÍA GENERAL
+// =======================
+
 function showGallery(tab) {
   document.querySelectorAll('.gallery-tab')
     .forEach(t => t.classList.add('hidden'));
 
   document.getElementById(tab)
     .classList.remove('hidden');
+
+  // Reset especial para álbumes
+  if (tab === "albums") {
+    document.getElementById("albumView").classList.add("hidden");
+    document.getElementById("albumsList").classList.remove("hidden");
+  }
 }
+
+// =======================
+// VISOR DE FOTO
+// =======================
+
 function openPhoto(src) {
   document.getElementById("photoViewer").classList.remove("hidden");
   document.getElementById("fullPhoto").src = src;
@@ -14,40 +29,54 @@ function closePhoto() {
   document.getElementById("photoViewer").classList.add("hidden");
 }
 
+// =======================
+// OCULTOS
+// =======================
+
 const hiddenCode = "1105";
 
 function openHidden() {
   let code = prompt("Ingresa el código");
 
-  if(code === hiddenCode) {
+  if (code === hiddenCode) {
     document.getElementById("hiddenContent").classList.remove("hidden");
   } else {
     alert("❌ Código incorrecto");
   }
 }
-// Código para eliminados
-const eliminatedCode = "0000"; // código propio
+
+// =======================
+// ELIMINADOS
+// =======================
+
+const eliminatedCode = "0000";
 
 function openEliminated() {
   let code = prompt("Ingresa el código para eliminados");
 
-  if(code === eliminatedCode) {
+  if (code === eliminatedCode) {
     document.getElementById("eliminatedContent").classList.remove("hidden");
   } else {
     alert("❌ Código incorrecto");
   }
 }
 
-// Favoritos funcional (solo muestra las fotos existentes)
+// =======================
+// FAVORITOS
+// =======================
+
 function renderFavorites() {
   const grid = document.getElementById('favoritesGrid');
-  grid.innerHTML = ''; // limpiar
-  // Ejemplo de fotos favoritas
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
   const favs = [
     "https://picsum.photos/200?10",
     "https://picsum.photos/200?11",
     "https://picsum.photos/200?12"
   ];
+
   favs.forEach(src => {
     const img = document.createElement('img');
     img.src = src;
@@ -55,9 +84,11 @@ function renderFavorites() {
     grid.appendChild(img);
   });
 }
-renderFavorites();
 
-// Datos de álbumes
+// =======================
+// ÁLBUMES
+// =======================
+
 const albumsData = {
   viajes: [
     "https://picsum.photos/200?20",
@@ -76,13 +107,14 @@ const albumsData = {
   ]
 };
 
-// Abrir álbum
 function openAlbum(name) {
   document.getElementById("albumsList").classList.add("hidden");
   document.getElementById("albumView").classList.remove("hidden");
 
   const grid = document.getElementById("albumGrid");
   grid.innerHTML = "";
+
+  if (!albumsData[name]) return;
 
   albumsData[name].forEach(src => {
     const img = document.createElement("img");
@@ -92,8 +124,15 @@ function openAlbum(name) {
   });
 }
 
-// Volver a la lista de álbumes
 function backToAlbums() {
   document.getElementById("albumView").classList.add("hidden");
   document.getElementById("albumsList").classList.remove("hidden");
 }
+
+// =======================
+// INIT
+// =======================
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderFavorites();
+});
