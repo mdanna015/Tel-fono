@@ -98,6 +98,7 @@
   background: #075e54;
   padding: 10px;
   color: white;
+  position: relative;
 }
 
 .chat-header img {
@@ -264,7 +265,7 @@
 }
 .back-btn {
   position: absolute;
-  left: 10px;
+  right: 10px;   /* 👈 CAMBIO CLAVE */
   top: 10px;
   background: none;
   border: none;
