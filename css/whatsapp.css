@@ -262,3 +262,14 @@
 .icon {
   font-size: 18px;
 }
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
