@@ -157,9 +157,12 @@ function backToAlbums() {
   document.getElementById("albumsList").classList.remove("hidden");
 }
 
-// =======================
-// INIT
-// =======================
+document.querySelectorAll('.album').forEach(el => {
+  el.addEventListener('click', () => {
+    const name = el.getAttribute('data-album');
+    openAlbum(name);
+  });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   renderFavorites();
