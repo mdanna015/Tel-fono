@@ -4,13 +4,6 @@ function showGallery(tab) {
 
   document.getElementById(tab)
     .classList.remove('hidden');
-
-  // 🔥 RESET ESPECIAL PARA ÁLBUMES
-  if(tab === "albums") {
-    document.getElementById("albumView").classList.add("hidden");
-    document.getElementById("albumsList").classList.remove("hidden");
-  }
-}
 }
 function openPhoto(src) {
   document.getElementById("photoViewer").classList.remove("hidden");
