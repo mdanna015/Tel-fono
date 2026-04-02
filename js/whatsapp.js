@@ -75,3 +75,11 @@ function toggleAudio(id, btn) {
     progress.style.width = percent + "%";
   };
 }
+
+function goHome() {
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.add('hidden'));
+
+  document.getElementById('home')
+    .classList.remove('hidden');
+}
